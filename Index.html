@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fun with Flags – Planet Coins</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Leer wereldvlaggen met leuke minigames, fun facts en scoor Planet Coins!" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Fun with Flags</h1>
+    <div class="wallet" id="wallet" aria-live="polite">
+      <span class="coin-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="24" height="24" role="img" aria-label="Planet Coin">
+          <circle cx="24" cy="24" r="22" fill="#2aa6ff"></circle>
+          <path d="M6 26c5 6 13 10 22 10 6 0 12-2 14-5-3 8-12 13-20 13C13 44 4 36 4 26c0-3 .4-5 2-8 0 3 0 6 0 8z" fill="#31d27c"/>
+          <circle cx="24" cy="24" r="22" fill="none" stroke="#0d3b66" stroke-width="2"/>
+        </svg>
+      </span>
+      <strong id="coinCount">0</strong>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="modes" role="tablist" aria-label="Spelmodi">
+      <button data-mode="flip" class="mode-btn" role="tab" aria-selected="true">Flipcards</button>
+      <button data-mode="mc" class="mode-btn" role="tab" aria-selected="false">Multiple Choice</button>
+      <button data-mode="pk" class="mode-btn" role="tab" aria-selected="false">Ouders vs Kids</button>
+      <div class="filter">
+        <label for="continent">Continent</label>
+        <select id="continent" aria-label="Filter op continent">
+          <option value="ALL">Alle continenten</option>
+          <option value="EU">Europa</option>
+          <option value="AS">Azië</option>
+          <option value="AF">Afrika</option>
+          <option value="NA">Noord-Amerika</option>
+          <option value="SA">Zuid-Amerika</option>
+          <option value="OC">Oceanië</option>
+        </select>
+      </div>
+    </nav>
+
+    <section id="game" class="game" aria-live="polite"></section>
+
+    <aside class="stats" aria-label="Statistieken">
+      <h2>Stats</h2>
+      <ul>
+        <li>Totaal gespeeld: <span id="statPlays">0</span></li>
+        <li>Goed beantwoord: <span id="statCorrect">0</span></li>
+        <li>Accuracy: <span id="statAcc">0%</span></li>
+        <li>Beste streak: <span id="statBestStreak">0</span></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <small>Missie: spelenderwijs je wereldbeeld vergroten 🌍 | v0.4 (Continentenfilter)</small>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data/countries.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
