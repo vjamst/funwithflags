@@ -20,6 +20,15 @@ const accEl = $("#statAcc");
 const bestStreakEl = $("#statBestStreak");
 const continentSelect = $("#continent");
 
+// ===== Twemoji helper =====
+function renderTwemoji(scope = document.body){
+  // Laat Twemoji de emoji's vervangen door SVG <img>-jes.
+  // Safe-guard: alleen als twemoji geladen is.
+  if (window.twemoji) {
+    window.twemoji.parse(scope, { folder: "svg", ext: ".svg" });
+  }
+}
+
 // ===== Filtered data helpers =====
 let currentContinent = "ALL";
 function getPool(){
@@ -109,11 +118,15 @@ const Modes = {
     card.append(flag, country, controls, factWrap, meta);
     gameEl.replaceChildren(card);
 
+    // Twemoji toepassen op de hele kaart (voor het geval er al emoji staan)
+    renderTwemoji(card);
+
     let flipped = false;
     revealBtn.onclick = () => {
       if(flipped) return;
       flipped = true;
-      flag.textContent = item.flag;
+      flag.textContent = item.flag;      // emoji-vlag
+      renderTwemoji(flag);               // parse na het invullen van de emoji
       stats.coins += 1; updateUI();
       toast("+1 Planet Coin 🌍");
 
@@ -142,12 +155,9 @@ const Modes = {
 
     const flag = document.createElement("div");
     flag.className = "flag";
-    flag.textContent = correct.flag;
-    flag.setAttribute("aria-label", `Welke vlag is dit?`);
-
+    flag.textContent = correct.flag;     // emoji-vlag
     const options = document.createElement("div");
     options.className = "options";
-
     const factWrap = document.createElement("div"); // na antwoord
 
     choices.forEach(opt=>{
@@ -191,6 +201,9 @@ const Modes = {
 
     card.append(flag, options, factWrap, meta);
     gameEl.replaceChildren(card);
+
+    // Twemoji toepassen op de net gerenderde kaart (voor de vlag-emoji)
+    renderTwemoji(card);
   },
 
   // --- Ouders vs Kids: om de beurt MC, max 10 beurten, punten per team ---
@@ -278,7 +291,7 @@ const Modes = {
 
       const flag = document.createElement("div");
       flag.className = "flag";
-      flag.textContent = correct.flag;
+      flag.textContent = correct.flag;   // emoji-vlag
 
       const options = document.createElement("div");
       options.className = "options";
@@ -330,6 +343,9 @@ const Modes = {
 
       card.append(head, flag, options, factWrap, meta);
       gameEl.replaceChildren(card);
+
+      // Twemoji toepassen voor deze ronde (vlag-emoji naar SVG)
+      renderTwemoji(card);
     }
 
     function endMatch(){
@@ -367,6 +383,8 @@ const Modes = {
       controls.append(again, back);
       card.append(head, win, controls);
       gameEl.replaceChildren(card);
+
+      renderTwemoji(card);
     }
   }
 };
@@ -377,17 +395,23 @@ $$(".mode-btn").forEach((btn,i,all)=>{
     const mode = btn.dataset.mode;
     all.forEach(b=>b.setAttribute("aria-selected", "false"));
     btn.setAttribute("aria-selected", "true");
-    if(Modes[mode]) Modes[mode]();
+    if(Modes[mode]) {
+      Modes[mode]();
+    }
   });
 });
 
-continentSelect.addEventListener("change", ()=>{
-  currentContinent = continentSelect.value;
-  // herstart huidige geselecteerde mode na filterwijziging
-  const active = $$(".mode-btn").find(b=>b.getAttribute("aria-selected")==="true");
-  const mode = active ? active.dataset.mode : "flip";
-  if(Modes[mode]) Modes[mode]();
-});
+if (continentSelect) {
+  continentSelect.addEventListener("change", ()=>{
+    currentContinent = continentSelect.value;
+    const active = $$(".mode-btn").find(b=>b.getAttribute("aria-selected")==="true");
+    const mode = active ? active.dataset.mode : "flip";
+    if(Modes[mode]) Modes[mode]();
+  });
+}
 
 // Start default
 Modes.flip();
+
+// Extra: probeer na eerste render nogmaals Twemoji toe te passen (voor het geval script later laadt)
+setTimeout(()=>renderTwemoji(document.body), 100);
