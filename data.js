@@ -1,0 +1,86 @@
+// Object shape:
+// { code:'NL', name:'Netherlands', flag:'🇳🇱', continent:'EU',
+//   flagFact:'', countryFact:'' }
+
+window.COUNTRIES = [
+  // Europa
+  { code:'NL', name:'Netherlands', flag:'🇳🇱', continent:'EU',
+    flagFact:'Horizontale driekleur rood–wit–blauw; een van de oudste tricolores.',
+    countryFact:'Hoofdstad: Amsterdam; bekend om waterbeheer, fietsen en tulpen.' },
+  { code:'BE', name:'Belgium', flag:'🇧🇪', continent:'EU',
+    flagFact:'Verticaal zwart–geel–rood, geïnspireerd op het Brabants wapen.',
+    countryFact:'Hoofdstad: Brussel; chocola, strips en EU-instellingen.' },
+  { code:'DE', name:'Germany', flag:'🇩🇪', continent:'EU',
+    flagFact:'Zwart–rood–goud, 19e-eeuwse vrijheidskleuren.',
+    countryFact:'Hoofdstad: Berlijn; grootste economie van Europa.' },
+  { code:'FR', name:'France', flag:'🇫🇷', continent:'EU',
+    flagFact:'“Le Tricolore” blauw–wit–rood; symbool van de Revolutie.',
+    countryFact:'Hoofdstad: Parijs; kunst, keuken en mode.' },
+  { code:'ES', name:'Spain', flag:'🇪🇸', continent:'EU',
+    flagFact:'Rood–geel–rood; brede gele baan voor zichtbaarheid op zee.',
+    countryFact:'Hoofdstad: Madrid; diverse regio’s (Catalonië, Baskenland).' },
+  { code:'IT', name:'Italy', flag:'🇮🇹', continent:'EU',
+    flagFact:'Groen–wit–rood; kleuren gelinkt aan landschap en geschiedenis.',
+    countryFact:'Hoofdstad: Rome; bakermat van het Romeinse Rijk.' },
+  { code:'PT', name:'Portugal', flag:'🇵🇹', continent:'EU',
+    flagFact:'Groen–rood met armillarium-sfeer; zeevaartverleden.',
+    countryFact:'Hoofdstad: Lissabon; fado en pastel de nata.' },
+  { code:'GB', name:'United Kingdom', flag:'🇬🇧', continent:'EU',
+    flagFact:'“Union Jack”: kruisen van drie heiligen.',
+    countryFact:'Hoofdstad: Londen; invloedrijk in cultuur en wetenschap.' },
+  { code:'IE', name:'Ireland', flag:'🇮🇪', continent:'EU',
+    flagFact:'Groen–wit–oranje; wit staat voor vrede tussen tradities.',
+    countryFact:'Hoofdstad: Dublin; “Emerald Isle”.' },
+  { code:'SE', name:'Sweden', flag:'🇸🇪', continent:'EU',
+    flagFact:'Blauw met geel Scandinavisch kruis.',
+    countryFact:'Hoofdstad: Stockholm; design en innovatie.' },
+  { code:'NO', name:'Norway', flag:'🇳🇴', continent:'EU',
+    flagFact:'Rood met blauw kruis in wit; Scandinavisch ontwerp.',
+    countryFact:'Hoofdstad: Oslo; fjorden en middernachtzon.' },
+  { code:'FI', name:'Finland', flag:'🇫🇮', continent:'EU',
+    flagFact:'Wit met blauw kruis; meren en sneeuw.',
+    countryFact:'Hoofdstad: Helsinki; saunacultuur.' },
+
+  // Noord-Amerika
+  { code:'US', name:'United States', flag:'🇺🇸', continent:'NA',
+    flagFact:'50 sterren (staten), 13 strepen (kolonies).',
+    countryFact:'Hoofdstad: Washington, D.C.; zeer divers land.' },
+  { code:'CA', name:'Canada', flag:'🇨🇦', continent:'NA',
+    flagFact:'Esdoornblad als nationaal symbool sinds 1965.',
+    countryFact:'Hoofdstad: Ottawa; Engels/Frans federaal tweetalig.' },
+  { code:'MX', name:'Mexico', flag:'🇲🇽', continent:'NA',
+    flagFact:'Adelaar met slang op cactus; Azteekse oorsprong.',
+    countryFact:'Hoofdstad: Mexico-Stad; rijke mix van culturen.' },
+
+  // Zuid-Amerika
+  { code:'BR', name:'Brazil', flag:'🇧🇷', continent:'SA',
+    flagFact:'Groen, gele ruit, sterrenhemel; “Ordem e Progresso”.',
+    countryFact:'Hoofdstad: Brasília; Amazone is grootste tropisch bos.' },
+  { code:'AR', name:'Argentina', flag:'🇦🇷', continent:'SA',
+    flagFact:'Lichtblauw–wit–lichtblauw met “Zon der Mei”.',
+    countryFact:'Hoofdstad: Buenos Aires; tango en pampa’s.' },
+
+  // Azië
+  { code:'JP', name:'Japan', flag:'🇯🇵', continent:'AS',
+    flagFact:'Witte vlag met rode zonneschijf (“Hinomaru”).',
+    countryFact:'Hoofdstad: Tokio; hypermodern én traditioneel.' },
+  { code:'CN', name:'China', flag:'🇨🇳', continent:'AS',
+    flagFact:'Rood veld met één grote en vier kleine sterren.',
+    countryFact:'Hoofdstad: Beijing; lange beschavingstraditie.' },
+  { code:'IN', name:'India', flag:'🇮🇳', continent:'AS',
+    flagFact:'Saffraan–wit–groen met Ashoka-chakra (24 spaken).',
+    countryFact:'Hoofdstad: New Delhi; enorme diversiteit.' },
+
+  // Afrika
+  { code:'ZA', name:'South Africa', flag:'🇿🇦', continent:'AF',
+    flagFact:'Meerkleurig Y-patroon dat eenheid symboliseert.',
+    countryFact:'Hoofdstad(en): Pretoria, Bloemfontein, Kaapstad.' },
+
+  // Oceanië
+  { code:'AU', name:'Australia', flag:'🇦🇺', continent:'OC',
+    flagFact:'Union Jack + Commonwealth-ster + Zuidelijk Kruis.',
+    countryFact:'Hoofdstad: Canberra; unieke fauna.' },
+  { code:'NZ', name:'New Zealand', flag:'🇳🇿', continent:'OC',
+    flagFact:'Union Jack + vier rode sterren (Zuidelijk Kruis).',
+    countryFact:'Hoofdstad: Wellington; Māori-cultuur prominent.' },
+];
