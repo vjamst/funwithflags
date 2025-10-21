@@ -178,7 +178,15 @@ const Modes = {
           const fact = makeFactBox("Fun fact over het land", correct.countryFact || "Dit land heeft een boeiende geschiedenis en cultuur.");
           factWrap.replaceChildren(fact);
 
-          setTimeout(()=>Modes.mc(), 900);
+          // Add Next button for user control
+          const nextBtn = document.createElement("button");
+          nextBtn.className = "btn next-btn";
+          nextBtn.textContent = "Volgende";
+          nextBtn.onclick = () => Modes.mc();
+          factWrap.appendChild(nextBtn);
+
+          // Auto-advance after longer delay (3 seconds instead of 900ms)
+          setTimeout(()=>Modes.mc(), 3000);
         } else {
           btn.classList.add("wrong");
           streak = 0; updateUI();
@@ -188,8 +196,16 @@ const Modes = {
           const fact = makeFactBox("Wist je dat…", correct.countryFact || "Volgende keer beter! Onthoud dit weetje.");
           factWrap.replaceChildren(fact);
 
+          // Add Next button for user control
+          const nextBtn = document.createElement("button");
+          nextBtn.className = "btn next-btn";
+          nextBtn.textContent = "Volgende";
+          nextBtn.onclick = () => Modes.mc();
+          factWrap.appendChild(nextBtn);
+
           toast("Mis. Probeer opnieuw!");
-          setTimeout(()=>Modes.mc(), 1100);
+          // Auto-advance after longer delay (3.5 seconds instead of 1100ms)
+          setTimeout(()=>Modes.mc(), 3500);
         }
       };
       options.appendChild(btn);
@@ -315,6 +331,20 @@ const Modes = {
 
             const fact = makeFactBox("Fun fact over het land", correct.countryFact || "Leuk weetje!");
             factWrap.replaceChildren(fact);
+
+            // Add Next button for user control
+            const nextBtn = document.createElement("button");
+            nextBtn.className = "btn next-btn";
+            nextBtn.textContent = "Volgende";
+            nextBtn.onclick = () => {
+              turn++;
+              if(turn > maxTurns){
+                endMatch();
+              } else {
+                round();
+              }
+            };
+            factWrap.appendChild(nextBtn);
           } else {
             btn.classList.add("wrong");
             updateUI();
@@ -323,8 +353,23 @@ const Modes = {
             toast(`${teams[currentIdx].name}: mis!`);
             const fact = makeFactBox("Wist je dat…", correct.countryFact || "Onthoud dit weetje!");
             factWrap.replaceChildren(fact);
+
+            // Add Next button for user control
+            const nextBtn = document.createElement("button");
+            nextBtn.className = "btn next-btn";
+            nextBtn.textContent = "Volgende";
+            nextBtn.onclick = () => {
+              turn++;
+              if(turn > maxTurns){
+                endMatch();
+              } else {
+                round();
+              }
+            };
+            factWrap.appendChild(nextBtn);
           }
 
+          // Auto-advance after longer delay (3 seconds instead of 1000ms)
           setTimeout(()=>{
             turn++;
             if(turn > maxTurns){
@@ -332,7 +377,7 @@ const Modes = {
             } else {
               round();
             }
-          }, 1000);
+          }, 3000);
         };
         options.appendChild(btn);
       });
