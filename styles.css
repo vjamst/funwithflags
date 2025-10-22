@@ -67,6 +67,7 @@ h1{font-size:20px; margin:0}
   padding:10px 14px; font-weight:700; cursor:pointer; transition:.2s;
 }
 .btn.secondary{background:#113; color:#cde; border:1px solid #284d69}
+.btn.next-btn{background:#2aa6ff; color:#fff; margin-top:12px; width:100%; max-width:200px}
 .btn:focus{outline:3px solid var(--ring)}
 
 .options{display:grid; gap:10px; grid-template-columns:1fr; margin-top:8px}
@@ -86,9 +87,11 @@ h1{font-size:20px; margin:0}
 .fact{
   display:flex; gap:10px; align-items:flex-start;
   background:#0b2233; border:1px solid #18425c; padding:12px; border-radius:12px;
+  margin-top:12px;
 }
 .fact .icon{font-size:20px; line-height:1}
 .fact strong{display:block; font-size:14px; color:#cfe}
+.fact .next-btn{display:block; margin:12px auto 0; width:fit-content; min-width:120px}
 
 .toast{
   position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
